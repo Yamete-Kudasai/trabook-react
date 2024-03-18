@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import Header from './assets/components/Header'
+import Home from './assets/components/Home';
 
 const App = () => {
   return (
     <div>
-      <Header/>
+      <Home/>
     </div>
   );
 };

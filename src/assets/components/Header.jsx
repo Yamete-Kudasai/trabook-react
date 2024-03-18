@@ -6,6 +6,7 @@ import React, {useState} from 'react'
 import logotipo from '../images/logo.png'
 import styled from 'styled-components';
 import MobileMenu from './mobileMenu';
+import {Button} from "@nextui-org/react";
 
 
 function Header() {
@@ -15,7 +16,6 @@ function Header() {
         setClicked(!clicked)
     }
     return (
-        <>
             <NavbarContainer>
                 <a href='' alt="">
                 <img src={logotipo} alt="Loto trabook" className='logo'/>
@@ -30,8 +30,8 @@ function Header() {
                 </ul>
 
                 <div className='buttons'>
-                    <button type="button" className='button-login rounded-xl'>Login</button>
-                    <button type="button" className='button-singup rounded-xl'>Sing Up</button>
+                    <Button type="button" className='button-login '>Login</Button>
+                    <Button type="button" className='button-singup rounded-xl'>Sing Up</Button>
                 </div>
 
                 <div className="menuMobile">
@@ -40,13 +40,13 @@ function Header() {
                 <BgMenuMobile className={`initial ${clicked ? 'active' : ''}`}></BgMenuMobile>
             </NavbarContainer>
             
-        </>
     );
 }
 export default Header;
 
 const NavbarContainer = styled.nav `
     .links{
+        z-index: 98;
         position: absolute;
         top: -100px;
         left: -2000px;
@@ -98,33 +98,20 @@ const NavbarContainer = styled.nav `
         text-align: center;
         display: flex;
 
-        button{
-            padding: .7rem 1.8rem;
-            border: solid 1px #FA7436;
+        Button{
+            background-color: transparent;
             color: #FA7436;
-            font-weight: 600;
-            text-align: center;
+            border: solid 1px #FA7436;
+            font-size: 20px;
+            padding: 25px 40px;
+            border-radius: 5px;
+            margin-right: 20px;
+            font-weight: bold;
 
-        }
-        .button-login{
-            margin-right: 2rem;
-            transition: all .6s ease;
-        }
-        .button-login:hover{
-            background-color: #FA7436;
-            color: white;
-            transition: all .6s ease;
         }
         .button-singup{
             background-color: #FA7436;
             color: white;
-            transition: all .2s ease;
-        }
-        .button-singup:hover{
-            background-color: white;
-            color: #FA7436;
-            transition: all .6s ease;
-            font-weight: bold;
         }
         @media(max-width: 768px){
             display: none;
@@ -134,6 +121,7 @@ const NavbarContainer = styled.nav `
 
     
     .menuMobile{
+        z-index: 99;
         @media(min-width: 768px){
             display: none;
 
@@ -156,7 +144,7 @@ const BgMenuMobile = styled.div `
     top: -1500px;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
     transition: all .6s ease;
     &.active{
         border-radius: 0 0 0 80%;
